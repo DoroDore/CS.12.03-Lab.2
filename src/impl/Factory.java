@@ -29,14 +29,12 @@ public final class Factory implements IFactory {
 
     @Override
     public IDoubleStack makeDoubleStack(int maxSize) {
-        // TODO need to implement this
-        return null;
+        return new DoubleStack(maxSize);
     }
 
     @Override
     public IQueue makeDoubleStackQueue(int maxSize) {
-        // TODO need to implement this
-        return null;
+        return new Queue(maxSize);
     }
 
 }
