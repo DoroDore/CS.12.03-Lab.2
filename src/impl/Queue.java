@@ -20,6 +20,7 @@ public class Queue implements IQueue {
 
     @Override
     public void enqueue(Object element) throws QueueFullException, StackOverflowException {
+        // Throws exception if queue is full and cannot receive more elements.
         if (size == capacity) {
             throw new QueueFullException();
         }

@@ -11,6 +11,10 @@ public class Stack implements IStack {
     private boolean firstStack;
     public Stack (int capacity, boolean firstStack) {
         this.firstStack = firstStack;
+        // Throws exception if the specified capacity is less than zero.
+        if (capacity < 0) {
+            throw new IllegalArgumentException("Cannot have a capacity smaller than zero");
+        }
         this.capacity = capacity;
         this.focus = 0;
         this.elements = new Object[capacity];
@@ -32,6 +36,7 @@ public class Stack implements IStack {
         if (focus == 0) {
             throw new StackEmptyException();
         }
+        // Shifts focus back first to look at actual top element in stack before removing it.
         focus--;
         Object element = elements[focus];
         elements[focus] = null;
@@ -40,6 +45,7 @@ public class Stack implements IStack {
 
     @Override
     public Object top() throws StackEmptyException {
+        // StackEmptyException because focus zero means there isn't anything added yet
         if (focus == 0) {
             throw new StackEmptyException();
         }
